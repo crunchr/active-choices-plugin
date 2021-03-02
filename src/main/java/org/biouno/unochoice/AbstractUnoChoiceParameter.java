@@ -40,7 +40,7 @@ import hudson.model.FileParameterValue;
 import hudson.model.ParameterDefinition;
 import hudson.model.ParameterValue;
 import hudson.model.SimpleParameterDefinition;
-import hudson.model.StringParameterValue;
+import hudson.model.TextParameterValue;
 import jenkins.model.Jenkins;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -135,7 +135,7 @@ public abstract class AbstractUnoChoiceParameter extends SimpleParameterDefiniti
         }
         final String description = getDescription();
         final String name = getName();
-        final StringParameterValue parameterValue = new StringParameterValue(name, value, description);
+        final TextParameterValue parameterValue = new TextParameterValue(name, value, description);
         return parameterValue;
     }
 
@@ -182,7 +182,7 @@ public abstract class AbstractUnoChoiceParameter extends SimpleParameterDefiniti
             parameterJsonModel.put("name",  name);
             parameterJsonModel.put("value", valueAsText);
 
-            StringParameterValue parameterValue = request.bindJSON(StringParameterValue.class, parameterJsonModel);
+            TextParameterValue parameterValue = request.bindJSON(TextParameterValue.class, parameterJsonModel);
             parameterValue.setDescription(getDescription());
             return parameterValue;
         }

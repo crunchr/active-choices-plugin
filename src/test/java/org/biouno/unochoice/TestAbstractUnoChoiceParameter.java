@@ -38,7 +38,7 @@ import org.kohsuke.stapler.StaplerRequest;
 import org.mockito.Mockito;
 
 import hudson.model.ParameterValue;
-import hudson.model.StringParameterValue;
+import hudson.model.TextParameterValue;
 import net.sf.json.JSONObject;
 
 /**
@@ -73,7 +73,7 @@ public class TestAbstractUnoChoiceParameter {
         json.put("value", "value");
 
         StaplerRequest request = Mockito.mock(StaplerRequest.class);
-        Mockito.when(request.bindJSON(StringParameterValue.class, json)).thenReturn((StringParameterValue) value);
+        Mockito.when(request.bindJSON(TextParameterValue.class, json)).thenReturn((TextParameterValue) value);
 
         value = param.createValue(request, json);
 

@@ -44,7 +44,7 @@ import hudson.model.AbstractBuild;
 import hudson.model.AbstractItem;
 import hudson.model.ParameterValue;
 import hudson.model.Project;
-import hudson.model.StringParameterValue;
+import hudson.model.TextParameterValue;
 import jenkins.model.Jenkins;
 
 /**
@@ -277,8 +277,8 @@ public abstract class AbstractScriptableParameter extends AbstractUnoChoiceParam
         final String name = getName();
         String defaultValue = findDefaultValue(getChoices(Collections.<Object, Object> emptyMap()));
         final String value = ObjectUtils.toString(defaultValue, ""); // Jenkins doesn't like null parameter values
-        final StringParameterValue stringParameterValue = new StringParameterValue(name, value);
-        return stringParameterValue;
+        final TextParameterValue TextParameterValue = new TextParameterValue(name, value);
+        return TextParameterValue;
     }
 
     private static String findDefaultValue(Map<Object, Object> choices) {
